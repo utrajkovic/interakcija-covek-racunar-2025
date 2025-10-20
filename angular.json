@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "interakcija-covek-racunar-2025": {
+    "ICR2k25": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -25,7 +25,12 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
@@ -56,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "interakcija-covek-racunar-2025:build:production"
+              "buildTarget": "ICR2k25:build:production"
             },
             "development": {
-              "buildTarget": "interakcija-covek-racunar-2025:build:development"
+              "buildTarget": "ICR2k25:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +87,12 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
             ]
           }
         }
