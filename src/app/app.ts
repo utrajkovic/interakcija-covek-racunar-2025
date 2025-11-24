@@ -1,5 +1,7 @@
 import { Component, signal } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { UserService } from '../services/user.service';
+import { Utils } from './utils';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +15,25 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 })
 export class App {
   protected year = new Date().getFullYear()
+
+  constructor(private router: Router, private utils: Utils) { }
+
+  getUserName() {
+    const user = UserService.getActiveUser()
+    return `${user.firstName} ${user.lastName}`
+  }
+
+  hasAuth() {
+    return UserService.hasAuth()
+  }
+  doLogout() {
+    this.utils.showDialog(
+      "Are you sure you want to logout ?", () => {
+        UserService.logout()
+        this.router.navigateByUrl('/login')
+      },
+      "Logout Now",
+      "Don't Logout"
+    )
+  }
 }

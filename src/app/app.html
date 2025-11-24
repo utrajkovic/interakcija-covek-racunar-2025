@@ -4,7 +4,8 @@
       <i class="fa-solid fa-face-smile"></i>
       ICR2k25
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -20,7 +21,25 @@
             <i class="fa-solid fa-circle-info"></i> About
           </a>
         </li>
+        @if (hasAuth()){
+        <li class="nav-item">
+          <button type="button" class="nav-link" (click)="doLogout()">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+          </button>
+        </li>
+        }@else {
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+          </a>
+        </li>
+        }
       </ul>
+      @if (hasAuth()){
+      <div class="navbar-text">
+        <i class="fa-solid fa-user"></i> {{getUserName()}}
+      </div>
+      }
     </div>
   </div>
 </nav>

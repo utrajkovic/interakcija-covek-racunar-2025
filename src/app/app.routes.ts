@@ -6,10 +6,10 @@ import { Login } from './login/login';
 import { Signup } from './signup/signup';
 
 export const routes: Routes = [
-    {path: '', component: Home},
-    {path: 'about', component: About},
-    {path: 'login', component: Login},
-    {path: 'signup', component: Signup},
-    {path: 'details/:id', component: Details},
+    {path: '', component: Home, title: 'Home'},
+    {path: 'about', component: About, title: 'About'},
+    {path: 'login', component: Login, title: 'Login'},
+    {path: 'signup', component: Signup, title: 'Signup'},
+    {path: 'details/:id', component: Details, title: 'Details'},
     {path: '**', redirectTo: ''}
 ];
