@@ -1,0 +1,71 @@
+<div class="card">
+    <div class="card-header">
+        <h5>User Details</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th scope="row">First Name:</th>
+                            <td>{{activeUser()?.firstName}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Last Name:</th>
+                            <td>{{activeUser()?.lastName}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 col-md-6">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Phone:</th>
+                            <td>{{activeUser()?.phone}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Email:</th>
+                            <td>{{activeUser()?.email}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h5> <i class="fa-solid fa-cart-shopping"></i> Chart</h5>
+    </div>
+    @if (activeUser()!.data.length > 0) {
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Toy</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (order of activeUser()?.data; track $index) {
+                <tr>
+                    <th scope="row">{{order.name}}</th>
+                    <td>{{order.quantity}}</td>
+                    <td>{{order.price * order.quantity}} din</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <div class="price fw-bold text-end mt-3">
+            UKUPNO: {{ totalPrice() }} din
+        </div>
+    </div>
+    }@else {
+    <div class="card-body">
+        <p class="text-center">You don't have any orders</p>
+    </div>
+    }
+</div>

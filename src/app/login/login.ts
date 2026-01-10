@@ -31,7 +31,13 @@ export class Login {
       return
     }
 
+    let to = '/'
 
-    this.router.navigateByUrl('/')
+    if (localStorage.getItem(UserService.T0_KEY)){
+      to = localStorage.getItem(UserService.T0_KEY)!
+      localStorage.removeItem(UserService.T0_KEY)
+    }
+    
+    this.router.navigateByUrl(to)
   }
 }

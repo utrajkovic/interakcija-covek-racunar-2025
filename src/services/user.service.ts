@@ -1,8 +1,10 @@
 import { UserModel } from "../model/user.model"
+import { OrderModel } from "../models/order.model"
 
 export class UserService {
     public static USERS_KEY = 'icr_users'
     public static ACTIVE_KEY = 'icr_active'
+    public static T0_KEY = 'icr_to'
 
     
     static getUsers(): UserModel[] {
@@ -54,5 +56,17 @@ export class UserService {
 
     static logout(){
         localStorage.removeItem(this.ACTIVE_KEY)
+    }
+    static createOrder(order: OrderModel){
+        const current = localStorage.getItem(this.ACTIVE_KEY)
+        const all = this.getUsers()
+
+        for(let u of all){
+            if(u.email === current){
+                u.data.push(order)
+            }
+        }
+
+        localStorage.setItem(this.USERS_KEY, JSON.stringify(all))
     }
 } 

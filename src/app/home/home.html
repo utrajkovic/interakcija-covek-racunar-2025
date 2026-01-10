@@ -1,1 +1,35 @@
-<p>home works!</p>
+<div class="input-group mb-3">
+    <span class="input-group-text" id="addon">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </span>
+
+    <input type="text" class="form-control" placeholder="Search..." [ngModel]="search()"
+        (ngModelChange)="onSearchChange($event)" />
+</div>
+
+<div class="toys">
+    @for (toy of toys(); track $index) {
+    <div class="toy-card">
+        <div class="toy-image-wrap">
+            <img class="toy-image" [src]="toy.imageUrl" [alt]="toy.name" />
+        </div>
+
+        <div class="toy-content">
+            <h6 class="toy-title">{{ toy.name }}</h6>
+            <p class="toy-desc">{{ toy.description }}</p>
+            <div class="toy-price">{{ toy.price }}.00 RSD</div>
+
+            <div class="toy-bottom">
+
+                <a class="toy-btn" [routerLink]="`/toy/${toy.permalink}`">
+                    Details
+                </a>
+                <a class="toy-btn" [routerLink]="``">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Add to Cart
+                </a>
+            </div>
+        </div>
+    </div>
+    }
+</div>

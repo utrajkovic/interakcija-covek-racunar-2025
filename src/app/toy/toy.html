@@ -1,0 +1,61 @@
+<div class="row toy-details">
+    <div class="col-12 col-md-4">
+        <div class="toy-image-wrapper">
+            <img [src]="(toy()?.imageUrl ?? '')" class="toy-image">
+        </div>
+    </div>
+
+    <div class="col-12 col-md-8">
+        <div class="card toy-card">
+            <div class="card-header toy-card-header">
+                <h5 class="card-title">{{ toy()?.name }}</h5>
+            </div>
+
+            <div class="card-body toy-card-body">
+                <p class="toy-description">
+                    {{ toy()?.description }}
+                </p>
+
+                <div class="toy-age">
+                    <span class="label">Uzrast:</span>
+                    <span class="value">
+                        {{ toy()?.ageGroup?.name }} godina
+                    </span>
+
+                </div>
+
+                <p class="toy-age-desc">
+                    {{ toy()?.ageGroup?.description }}
+                </p>
+
+                <div class="toy-type">
+                    <div class="toy-type-row">
+                        <span class="label">Tip:</span>
+                        <span class="value">{{ toy()?.type?.name }}</span>
+                    </div>
+
+                    <p class="toy-type-desc">
+                        {{ toy()?.type?.description }}
+                    </p>
+                </div>
+
+                <div class="toy-footer">
+                    <div class="toy-price">
+                        {{ toy()?.price }}.00 RSD
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+            </div>
+            <form (ngSubmit)="onSubmit()">
+                <label>Količina:</label>
+                <input type="number" class="form-control" [(ngModel)]="quantity" name="quantity">
+                <button class="toy-btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Add to Cart
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>
