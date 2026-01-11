@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-3">
   <div class="container">
     <a class="navbar-brand playful-logo" routerLink="/">
-      <i class="fa-solid fa-face-smile smile-icon"></i>
+      <i class="fa-solid fa-face-smile smile-icon logo-letter l7"></i>
       <span class="logo-letter l1">I</span>
       <span class="logo-letter l2">C</span>
       <span class="logo-letter l3">R</span>
@@ -67,6 +67,49 @@
 
 <div class="container">
   <router-outlet />
+  <div class="chatbot-container position-fixed bottom-0 end-0 p-3">
+    <button type="button" class="chat-toggle" (click)="toggleChat()"
+      [attr.aria-label]="chatOpen() ? 'Close chat' : 'Open chat'">
+      @if (chatOpen()) {
+      <i class="fa-solid fa-phone-volume"></i>
+      } @else {
+      <i class="fa-solid fa-phone"></i>
+      }
+    </button>
+
+    <div class="chatbox card" [class.active]="chatOpen()">
+      <div class="card-header chat-header">
+        <span><b>Chat</b></span>
+      </div>
+
+      <div class="card-body chat-body">
+        @for (msg of messages; track $index) {
+        <div class="message">
+          @if (msg.type == 'user') {
+          <div class="text-end">
+            <div class="badge user-msg">{{msg.text}}</div>
+          </div>
+          }
+          @if (msg.type == 'bot') {
+          <div class="text-start">
+            <div class="badge bot-msg" [innerHTML]="msg.text"></div>
+          </div>
+          }
+
+          @if (msg.type == 'error') {
+          <div class="text-start">
+            <div class="badge bot-msg danger">{{msg.text}}</div>
+          </div>
+          }
+        </div>
+        }
+      </div>
+
+      <div class="card-footer">
+        <input type="text" class="form-control" placeholder="Type a message..." [(ngModel)]="userMessage" (keyup.enter)="sendUserMessage()">
+      </div>
+    </div>
+  </div>
   <div class="text-center mt-3">
     <p>&copy; {{year}} Singidunum - TF - SII - Interakcija Covek Racunar</p>
   </div>
