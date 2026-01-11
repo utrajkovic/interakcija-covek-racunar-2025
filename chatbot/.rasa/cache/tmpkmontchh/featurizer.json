@@ -35,7 +35,7 @@
         "utter_cheer_up": 13,
         "utter_did_that_help": 14,
         "utter_goodbye": 15,
-        "utter_greet": 16,
+        "utter_pozdrav": 16,
         "utter_happy": 17,
         "utter_iamabot": 18
       },

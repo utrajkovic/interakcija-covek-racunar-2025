@@ -1,33 +1,116 @@
 version: "3.1"
 
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - nlu_fallback
+  - pozdrav
+  - zbogom
+  - bot_izazov
+
+  - prikazi_sve_igracke
+  - trazi_igracku_po_nazivu
+
+  - filtriraj_po_uzrastu
+  - filtriraj_po_tipu
+  - filtriraj_po_targetu
+  - filtriraj_po_ceni
+
+  - preporuci_igracku
+
+  - pitaj_cenu
+  - pitaj_opis
+  - pitaj_uzrast
+  - pitaj_tip
+  - pitaj_target
+
+entities:
+  - naziv_igracke
+  - uzrast
+  - tip
+  - target
+  - max_cena
+  - min_cena
+
+slots:
+  last_toy:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  uzrast:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: uzrast
+
+  tip:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: tip
+
+  target:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: target
+
+  max_cena:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: max_cena
+
+  min_cena:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: min_cena
 
 responses:
-  utter_greet:
-  - text: "Hey! How are you?"
+  utter_pozdrav:
+    - text: "Cao! 😊 Mogu da ti pomognem da pronadjes igracke. Reci npr: „prikazi sve igracke“, „trazi igracku plisana panda“, „igracke za 3-5“ ili „preporuci igracku do 2000 din“."
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_zbogom:
+    - text: "Pozdrav! 👋 Ako ti zatreba jos nesto oko igracaka, tu sam."
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_bot:
+    - text: "Ja sam chatbot napravljen u Rasa-i 🤖"
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_ne_razumem:
+    - text: "Nisam siguran da sam razumeo. Probaj: „prikazi sve igracke“, „igracke za 3-5“, „tip slagalica“, „do 2000 din“, ili „trazi igracku panda“."
 
-  utter_goodbye:
-  - text: "Bye"
+  utter_pitaj_uzrast:
+    - text: "Za koji uzrast trazis? (0-2, 3-5, 6-9, 10 plus)"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  utter_pitaj_tip:
+    - text: "Koji tip zelis? (slagalica, figura, drustvena igra, vozilo, edukativna, plisana igracka...)"
+
+  utter_pitaj_target:
+    - text: "Za koga je? (decak, devojcica, svi)"
+
+  utter_pitaj_budzet:
+    - text: "Koji je budzet? Npr: „do 2000 din“ ili „od 1000 do 3000“."
+
+actions:
+  - action_prikazi_sve_igracke
+  - action_trazi_igracku
+  - action_filtriraj_po_uzrastu
+  - action_filtriraj_po_tipu
+  - action_filtriraj_po_targetu
+  - action_filtriraj_po_ceni
+  - action_preporuci_igracku
+
+  - action_last_toy_cena
+  - action_last_toy_opis
+  - action_last_toy_uzrast
+  - action_last_toy_tip
+  - action_last_toy_target
 
 session_config:
   session_expiration_time: 60

@@ -1,8 +1,10 @@
 import { Component, signal, computed } from '@angular/core';
 import { ToyService } from '../../services/toy.service';
 import { ToyModel } from '../../models/toy.model';
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { FormsModule } from "@angular/forms";
+import { UserService } from '../../services/user.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +13,11 @@ import { FormsModule } from "@angular/forms";
   styleUrl: './home.css'
 })
 export class Home {
+  protected toy = signal<ToyModel | null>(null)
   protected allToys = signal<ToyModel[]>([]);
   protected search = signal('');
+  quantity = 1;
+
 
   protected toys = computed(() => {
     const q = this.search().trim().toLowerCase();
@@ -25,7 +30,7 @@ export class Home {
     );
   });
 
-  constructor() {
+  constructor(private router: Router) {
     this.loadAllToys();
   }
 
@@ -38,4 +43,19 @@ export class Home {
   protected onSearchChange(v: string) {
     this.search.set(v);
   }
+
+  protected addToCart(toy: ToyModel) {
+    UserService.createOrder({
+      toyId: toy.toyId,
+      name: toy.name,
+      productionDate: toy.productionDate,
+      quantity: 1,         
+      status: 'na',
+      price: toy.price,
+      orderId: uuidv4()
+    });
+
+    this.router.navigateByUrl('/profile');
+  }
+
 }

@@ -1,56 +1,56 @@
 {
-  "hash": "ee4e6450",
-  "configHash": "ced1dee9",
-  "lockfileHash": "293b8ebe",
-  "browserHash": "2aae615e",
+  "hash": "adcf58da",
+  "configHash": "52a09b4d",
+  "lockfileHash": "496836bb",
+  "browserHash": "121d338d",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "6574a015",
+      "fileHash": "39c24da1",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "263c948c",
+      "fileHash": "5db09411",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "1f42fbfd",
+      "fileHash": "8dc256ab",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "eb2ea393",
+      "fileHash": "b33f6c91",
       "needsInterop": false
     },
     "axios": {
       "src": "../../../../../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "fd326456",
+      "fileHash": "246c155b",
       "needsInterop": false
     },
     "sweetalert2": {
       "src": "../../../../../../node_modules/sweetalert2/dist/sweetalert2.esm.all.js",
       "file": "sweetalert2.js",
-      "fileHash": "46c5de85",
+      "fileHash": "3a20cc30",
+      "needsInterop": false
+    },
+    "uuid": {
+      "src": "../../../../../../node_modules/uuid/dist/index.js",
+      "file": "uuid.js",
+      "fileHash": "8f2e3d63",
       "needsInterop": false
     },
     "zone.js": {
       "src": "../../../../../../node_modules/zone.js/fesm2015/zone.js",
       "file": "zone__js.js",
-      "fileHash": "779441a4",
+      "fileHash": "32dda933",
       "needsInterop": true
-    },
-    "uuid": {
-      "src": "../../../../../../node_modules/uuid/dist/index.js",
-      "file": "uuid.js",
-      "fileHash": "d43ded85",
-      "needsInterop": false
     }
   },
   "chunks": {

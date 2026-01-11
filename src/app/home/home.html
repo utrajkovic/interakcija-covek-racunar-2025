@@ -24,10 +24,10 @@
                 <a class="toy-btn" [routerLink]="`/toy/${toy.permalink}`">
                     Details
                 </a>
-                <a class="toy-btn" [routerLink]="``">
+                <button type="button" class="toy-btn" (click)="addToCart(toy)">
                     <i class="fa-solid fa-cart-shopping"></i>
                     Add to Cart
-                </a>
+                </button>
             </div>
         </div>
     </div>

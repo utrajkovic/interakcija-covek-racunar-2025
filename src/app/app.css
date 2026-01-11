@@ -99,6 +99,8 @@
   cursor: pointer;
   box-shadow: 0 6px 16px rgba(0, 0, 0, .3);
   z-index: 1000;
+  position: fixed;
+  overflow: visible;
 }
 
 .chatbox {
@@ -152,6 +154,7 @@
   padding: 8px 12px;
   border-radius: 12px;
 }
+
 .chat-toggle {
   transition:
     transform 0.25s ease,
@@ -167,8 +170,9 @@
 
 .chat-toggle:active {
   transform: scale(0.95);
-  box-shadow: 0 6px 16px rgba(0,0,0,.35);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .35);
 }
+
 .chat-toggle::after {
   content: "";
   position: absolute;
@@ -183,20 +187,23 @@
 .chat-toggle:hover::after {
   opacity: 1;
 }
+
 .chat-toggle.open {
   background: #198754;
 }
+
 .chat-toggle i {
   transition: transform 0.25s ease;
   font-size: 22px;
 }
-.message{
+
+.message {
   padding: 5px;
 }
 
 .chatbox {
-  width: 380px; 
-  height: 520px; 
+  width: 380px;
+  height: 520px;
 }
 
 @media (max-width: 420px) {
@@ -205,6 +212,7 @@
     right: 12px;
     bottom: 90px;
   }
+
   .chat-toggle {
     right: 12px;
     bottom: 12px;
@@ -215,10 +223,10 @@
 .bot-msg {
   text-align: left;
   display: inline-block;
-  max-width: 85%;          
-  white-space: pre-wrap;      
-  overflow-wrap: anywhere;    
-  word-break: break-word;    
+  max-width: 85%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .message {
@@ -229,7 +237,60 @@
   padding: 10px;
   line-height: 1.25;
 }
+
 .text-end,
-.text-start{
+.text-start {
   padding: 5px;
+}
+
+.chat-message {
+  white-space: pre-line;
+}
+
+.chatbot-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+  z-index: 9999;
+}
+
+.chat-hint{
+  position: absolute;
+  right: 10px;              
+  bottom: 66px;             
+  background: #0d6efd;     
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  max-width: 240px;
+  box-shadow: 0 12px 28px rgba(13,110,253,0.35);
+  animation: hintFloat 0.45s ease-out;
+  opacity: 0.98;
+  white-space: nowrap;
+  z-index: 1001;
+  transform-origin: bottom right;
+}
+
+.chat-hint::after{
+  content: "";
+  position: absolute;
+  right: 18px;              
+  bottom: -8px;             
+  width: 0;
+  height: 0;
+  border-top: 10px solid #0d6efd; 
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  filter: drop-shadow(0 8px 10px rgba(13,110,253,0.25));
+}
+
+@keyframes hintFloat{
+  from { transform: translateY(10px) scale(0.92); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 0.98; }
+}
+.chat-hint{
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
 }

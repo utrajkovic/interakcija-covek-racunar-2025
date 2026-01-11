@@ -1,91 +1,152 @@
 version: "3.1"
 
 nlu:
-- intent: greet
+- intent: pozdrav
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - cao
+    - zdravo
+    - hej
+    - dobar dan
+    - dobro vece
+    - dobro jutro
 
-- intent: goodbye
+- intent: zbogom
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+    - cao
+    - vidimo se
+    - dovidjenja
+    - pozdrav
+    - laku noc
 
-- intent: affirm
+- intent: bot_izazov
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+    - da li si bot
+    - jesi li ti covek
+    - sa kim pricam
+    - da li si pravi
 
-- intent: deny
+- intent: prikazi_sve_igracke
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - prikazi sve igracke
+    - pokazi sve igracke
+    - daj mi sve igracke
+    - lista igracaka
+    - spisak igracaka
+    - koje igracke imate
 
-- intent: mood_great
+- intent: trazi_igracku_po_nazivu
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+    - trazi igracku [panda](naziv_igracke)
+    - nadji igracku [plisana panda](naziv_igracke)
+    - pokazi [vatrogasni kamion](naziv_igracke)
+    - daj mi [monopol junior](naziv_igracke)
+    - imas li [lego classic](naziv_igracke)
+    - pronadji [mikroskop](naziv_igracke)
 
-- intent: mood_unhappy
+- intent: filtriraj_po_uzrastu
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - igracke za [0-2](uzrast)
+    - igracke za [3-5](uzrast)
+    - igracke za [6-9](uzrast)
+    - igracke za [10 plus](uzrast)
+    - sta ima za uzrast [3-5](uzrast)
+    - prikazi igracke uzrast [6-9](uzrast)
 
-- intent: bot_challenge
+- intent: filtriraj_po_tipu
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - pokazi [slagalice](tip)
+    - hocu [figure](tip)
+    - prikazi [drustvene igre](tip)
+    - pokazi [vozila](tip)
+    - treba mi [edukativna igracka](tip)
+    - zelim [plisanu igracku](tip)
+    - tip [kreativni set](tip)
+
+- intent: filtriraj_po_targetu
+  examples: |
+    - igracke za [decaka](target)
+    - igracke za [devojcicu](target)
+    - za [sve](target)
+    - ciljna grupa [decak](target)
+    - ciljna grupa [devojcica](target)
+
+- intent: filtriraj_po_ceni
+  examples: |
+    - igracke do [2000](max_cena) dinara
+    - do [1500](max_cena)
+    - jeftinije od [2500](max_cena)
+    - od [1000](min_cena) do [3000](max_cena)
+    - izmedju [1200](min_cena) i [3500](max_cena)
+
+- intent: preporuci_igracku
+  examples: |
+    - preporuci igracku
+    - preporuci mi igracku
+    - treba mi poklon za dete
+    - sta preporucujes za dete
+    - preporuci igracku za [3-5](uzrast)
+    - preporuci [slagalicu](tip) do [2000](max_cena)
+    - preporuci za [decaka](target) [6-9](uzrast) do [3000](max_cena)
+
+- intent: pitaj_cenu
+  examples: |
+    - koliko kosta
+    - koja je cena
+    - cena?
+    - koliko je dinara
+
+- intent: pitaj_opis
+  examples: |
+    - reci mi opis
+    - sta je to
+    - o cemu se radi
+    - detalji
+    - vise detalja
+
+- intent: pitaj_uzrast
+  examples: |
+    - za koji je uzrast
+    - za koliko godina je
+    - za bebe ili starije
+    - uzrast?
+
+- intent: pitaj_tip
+  examples: |
+    - koji je tip
+    - koja je kategorija
+    - tip?
+
+- intent: pitaj_target
+  examples: |
+    - za koga je
+    - da li je za decaka ili devojcicu
+    - ciljna grupa?
+
+- regex: uzrast
+  examples: |
+    - 0-2
+    - 3-5
+    - 6-9
+
+- synonym: 10 plus
+  examples: |
+    - 10 plus
+
+- synonym: decak
+  examples: |
+    - musko
+    - za decaka
+    - decaka
+    - decko
+
+- synonym: devojcica
+  examples: |
+    - zensko
+    - za devojcicu
+    - devojcicu
+
+- synonym: svi
+  examples: |
+    - sve
+    - unisex
+    - za sve

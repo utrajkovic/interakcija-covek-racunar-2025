@@ -1,0 +1,14 @@
+[
+  {
+    "name": "uzrast",
+    "pattern": "0-2"
+  },
+  {
+    "name": "uzrast",
+    "pattern": "3-5"
+  },
+  {
+    "name": "uzrast",
+    "pattern": "6-9"
+  }
+]

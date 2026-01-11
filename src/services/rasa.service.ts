@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 export class RasaService {
     static async sendMessage(content: String) {
         return axios.request<any[]>({
-            url: 'https://rasa.singidunum.ac.rs/upis/webhooks/rest/webhook',
+            url: 'http://localhost:5005/webhooks/rest/webhook',
             method: 'POST',
             data: {
                 "sender": this.obtainSenderId(),

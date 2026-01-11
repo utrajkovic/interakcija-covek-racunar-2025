@@ -47,15 +47,16 @@
             </div>
             <div class="card-footer">
             </div>
-            <form (ngSubmit)="onSubmit()">
-                <label>Količina:</label>
-                <input type="number" class="form-control" [(ngModel)]="quantity" name="quantity">
+            <form (ngSubmit)="onSubmit()" class="toy-buy-row">
+                <label class="toy-qty-label"><b>Količina:</b></label>
+
+                <input type="number" class="toy-qty-input" [(ngModel)]="quantity" name="quantity" min="1">
+
                 <button class="toy-btn">
                     <i class="fa-solid fa-cart-shopping"></i>
                     Add to Cart
                 </button>
             </form>
-
         </div>
     </div>
 </div>

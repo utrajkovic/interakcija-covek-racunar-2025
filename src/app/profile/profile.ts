@@ -15,11 +15,11 @@ export class Profile {
 
   protected activeUser = signal<UserModel | null>(null);
   protected statusMap = {
-    'na':'Waiting',
-    'paid':'Paid',
-    'canceled':'Canceled',
-    'liked':'Positive Rating',
-    'disliked':'Negative Rating'
+    'na': 'Waiting',
+    'paid': 'Paid',
+    'canceled': 'Canceled',
+    'liked': 'Positive Rating',
+    'disliked': 'Negative Rating'
   }
 
   constructor(private router: Router) {
@@ -29,7 +29,13 @@ export class Profile {
       return;
     }
 
-    this.activeUser.set(UserService.getActiveUser());
+    try {
+      this.activeUser.set(UserService.getActiveUser());
+    } catch (e) {
+      const raw = localStorage.getItem(UserService.ACTIVE_KEY);
+      this.activeUser.set(raw ? JSON.parse(raw) : null);
+    }
+
   }
   totalPrice = computed(() => {
     const orders = this.activeUser()?.data ?? [];
@@ -38,5 +44,7 @@ export class Profile {
       return sum + (order.price * order.quantity);
     }, 0);
   });
+
+
 }
 

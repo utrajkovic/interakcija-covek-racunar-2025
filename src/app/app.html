@@ -75,11 +75,16 @@
       } @else {
       <i class="fa-solid fa-phone"></i>
       }
+      @if (!chatOpen() && showHelpHint()) {
+      <div class="chat-hint">
+        Treba ti pomoc? Tu je <b>Toyzzi</b>!
+      </div>
+      }
     </button>
 
     <div class="chatbox card" [class.active]="chatOpen()">
       <div class="card-header chat-header">
-        <span><b>Chat</b></span>
+        <span><b>ToyZZi</b></span>
       </div>
 
       <div class="card-body chat-body">
@@ -106,7 +111,8 @@
       </div>
 
       <div class="card-footer">
-        <input type="text" class="form-control" placeholder="Type a message..." [(ngModel)]="userMessage" (keyup.enter)="sendUserMessage()">
+        <input type="text" class="form-control" placeholder="Type a message..." [(ngModel)]="userMessage"
+          (keyup.enter)="sendUserMessage()">
       </div>
     </div>
   </div>

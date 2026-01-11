@@ -1,13 +1,84 @@
 version: "3.1"
 
 rules:
-
-- rule: Say goodbye anytime the user says goodbye
+- rule: Pozdrav
   steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - intent: pozdrav
+  - action: utter_pozdrav
 
-- rule: Say 'I am a bot' anytime the user challenges
+- rule: Zbogom
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - intent: zbogom
+  - action: utter_zbogom
+
+- rule: Bot izazov
+  steps:
+  - intent: bot_izazov
+  - action: utter_bot
+
+- rule: Prikazi sve igracke
+  steps:
+  - intent: prikazi_sve_igracke
+  - action: action_prikazi_sve_igracke
+
+- rule: Trazi igracku
+  steps:
+  - intent: trazi_igracku_po_nazivu
+  - action: action_trazi_igracku
+
+- rule: Filtriraj uzrast
+  steps:
+  - intent: filtriraj_po_uzrastu
+  - action: action_filtriraj_po_uzrastu
+
+- rule: Filtriraj tip
+  steps:
+  - intent: filtriraj_po_tipu
+  - action: action_filtriraj_po_tipu
+
+- rule: Filtriraj target
+  steps:
+  - intent: filtriraj_po_targetu
+  - action: action_filtriraj_po_targetu
+
+- rule: Filtriraj cenu
+  steps:
+  - intent: filtriraj_po_ceni
+  - action: action_filtriraj_po_ceni
+
+- rule: Preporuci igracku
+  steps:
+  - intent: preporuci_igracku
+  - action: action_preporuci_igracku
+
+- rule: Pitanje cena (last toy)
+  steps:
+  - intent: pitaj_cenu
+  - action: action_last_toy_cena
+
+- rule: Pitanje opis (last toy)
+  steps:
+  - intent: pitaj_opis
+  - action: action_last_toy_opis
+
+- rule: Pitanje uzrast (last toy)
+  steps:
+  - intent: pitaj_uzrast
+  - action: action_last_toy_uzrast
+
+- rule: Pitanje tip (last toy)
+  steps:
+  - intent: pitaj_tip
+  - action: action_last_toy_tip
+
+- rule: Pitanje target (last toy)
+  steps:
+  - intent: pitaj_target
+  - action: action_last_toy_target
+
+- rule: Fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_ne_razumem
+  - action: action_listen
+
